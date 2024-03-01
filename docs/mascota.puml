@@ -1,0 +1,68 @@
+@startuml
+
+
+
+class Mascota{
+     +Comer (Alimento)
+     +Beber (Agua)
+     +Jugar(Juegos)
+    
+}
+
+package Alimento{
+Class Alimento{
+}
+Class Carne
+Class Agua
+Class Pan
+Class Verduras
+
+}
+package Skins{
+   
+Class Skins
+ {
+    +Poner(Ropa)
+    
+    }
+Class Ropa
+}
+Package Felicidad{
+Class Felicidad
+Class Juguetes
+Class Balon
+{
+    +Patear(Juguetes)
+}
+class Juegos
+Class Cosquillas
+}
+package Sueño{
+Class Sueño{
++Dormir(Sueño)
+}
+Class Energizantes{
+    +Tomar(Energizante)
+}
+}
+
+
+Alimento "4"--o "1"  Mascota
+Ropa --o Skins
+Skins --|> Mascota
+Balon --o Juegos
+Juegos--|> Felicidad
+Cosquillas --o Felicidad
+Carne --o Alimento
+Energizantes --o Sueño
+Sueño --|>  Felicidad
+Felicidad --|> Mascota
+Juguetes --|> Felicidad
+Pan "1"--o "1" Alimento
+Verduras "1"--o "1" Alimento
+Agua "1"--o "1" Alimento
+Balon "1"--o "0,2" Juguetes
+
+
+
+@enduml
